@@ -1,0 +1,87 @@
+ ****Arrays or Lists
+-To display every item, we need to loop through our data.
+-We use the .map() function.
+Syntax: arrayName.map(callback function)
+
+
+****Objects
+-Objects cannot be rendered directly.
+-To acces the properties of an object, access using, objectName.attribute
+
+
+-All these have to be rendered in a list that must have a key, the name of the key is usualyy the singular form of our array or object name.
+-The .map() function is always important.
+
+
+
+****Components
+1. Create our data array.
+2.Create our individual component, the one that is to be repeated.
+-No import is needed here, just export the function as usual.
+3.Create our container component that maps-Our OG.
+-Always add a unique key, key={}, then pass our data as props, e.g name={item.name}
+-Import our individual component.
+-Export our container component.
+4.Use the container component in our app.
+-Import our container component
+
+-To render components, is basically returning them in a self-closing tag in our App.jsx after importing them.
+
+
+
+****Conditional Rendering.
+-This is the showing or hiding entire components based on certain conditions.
+-It is deciding whether to render a whole component or not.
+-Shows component if condition is true or not.
+-Basically controlling the flow of which components appear based on my app's state or props.
+-Use an if statement.
+
+
+
+****Conditional Rendering Using Element Variables.
+-Helps us avoid using 2 return statements on a single component.
+-It is a good practice to only have one 'return'  statement in each component.
+
+Syntax:
+let varName = elements,
+    e.g.
+let message = <h1>I'm just a girl</h1>
+
+**Remember to declare our variable without assigning any value to it, this is done before our 'if'
+statement. i.e. 
+            "let message;"
+
+
+****Conditional Rendering using Ternary Operators.
+Syntax: condition ? valueIfTrue : valueIfFalse;
+E.g:
+"
+let isHappy = true;
+let message = isHappy ? "I am Happy" : "I am not happy"
+"
+-Checks if 'isHappy' is true and will print the first condition.
+- To render components instead, the syntax remains the same:
+"
+const display = false;
+{
+    return display ? <Component1/> : <Component2/>
+}
+"
+
+
+
+****Conditionally rendering List items
+- Used when wanting to isolate items from a list.
+
+
+****Conditionally rendering a UI.
+1.Ternary operator:
+{condition ? <ElementToShow> : <AlternativeElement>}
+-used when one wants to choose between showing one thing or another.
+2.Logical and:
+{condition && <element>}
+-used when one wants to show something conditionally.
+"Show this or nothing"
+
+
+

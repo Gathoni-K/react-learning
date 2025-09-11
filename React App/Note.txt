@@ -1,0 +1,55 @@
+In the terminal, type in: 
+'npm create vite@4.1.0'
+-Type in project name, and then the package name(This should be in small letters).
+-Select a framework: React.
+-Select a variant: 'JavaScript'.
+
+
+//App is successfully created.
+
+//To run our app:
+1.Navigate to our app using 'cd appName'.
+2.Type in 'npm install', this installs all the dependecies of our app.
+3.Run our application using 'npm run dev'.
+
+"
+VITE v4.5.14  ready in 544 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+  "
+-This shows that our app runs successfully.
+
+-To stop our server: ''
+-To run our server: 'npm run dev'
+
+
+******    How a React App Works            ********
+-Are single-paged applications, there is only 1 html file.
+-React creates specific elements for us.
+-In the 'src' folder, there is the "main.jsx" which is the starting point of our app.
+-Our "app.jsx" powers our entire webpage.
+-To clear our webpage, go to the "app.jsx" and delete everything leaving only the block of code below:
+          "
+            import { useState } from 'react'
+            import reactLogo from './assets/react.svg'
+            import './App.css'
+
+            function App() {
+              const [count, setCount] = useState(0)
+
+              return (
+                <div className="App">
+                </div>
+              )
+            }
+
+            export default App
+           "
+
+"vite.config.js" - runs our vite app.
+"package.json" - contains all the dependencies of our app.
+"main.jsx" - selects root element from HTML page and renders React component.
+"assets" - folder is useless, so is the "vite.svg"
+"node_modules" - contains all the modules that we need to run our app.

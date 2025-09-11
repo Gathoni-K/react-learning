@@ -1,0 +1,3 @@
+-Whenever a button is inside a form, on clicking it, the form is submitted by default.
+-In React, when submitting a form, the data input is lost whenever the page refreshes.
+-So to control this, the defualt behaviour of the button should be checked.

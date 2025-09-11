@@ -1,0 +1,42 @@
+-React apps are made out of components.
+-A compnent is a piece of the UI that has its own logic and appearance
+-It can be as small as a button or as large as an entire page.
+-They are JS functions that return markup.
+-They start with a capital letter and that is how you can differentiate them from HTML tags
+that are always in lowercase.
+
+-Specifying a CSS class is done by the use of 'className', which works the same as the HTML 
+'class' attribute.
+
+-Remember that on passing the props to our function, store them in curly braces.
+-Our JSX starts from the 'return' statement.
+
+
+****CLOSING TAGS IN OUR COMPONENTS.
+-When rendering our components in our 'App.jsx', we normally use self-closing tags i.e.:
+        <BookList/>
+-However, one can also use both opening and closing tags, 
+        <BookList></BookList>
+-The second option is mostly used when the component will have children.
+-Likely cases for a component to have children:
+1.List/Container components; <Container></Container>
+2.Layout components; <Modal></Modal>
+3.Wrapper/Provider components; <AuthProvider></AuthProvider>
+
+-The common method is using the first option, there is no difference as both syntaxes are equally
+valid.
+
+
+****NAMING CONVENTIONS.
+-Components must use PascalCase, the component file and the function name should be the same and both in PascalCase.
+-This is because React treats PascalCase as components and camelCase as regular HTML elements.
+-Best practice is to match the file name to the component name: BookList.jsx contains function BookList()
+-Variables or functions use camelCase: const bookCount = 3;
+-Constants are written in 'UPPER_SNAKE_CASE': const MAX_BOOKS = 100;
+-Props like variables also use camelCase.
+
+
+****When setting up a React app, there are some files that are unecessary and are thus deleted.
+-These files include: the public folder, the 'App.css' and 'index.css', the assets folder located in the src folder.
+-Remove the deleted imports from the rest of our files.
+-Then in our 'App.jsx', delete everything leaving only the function and the main div.

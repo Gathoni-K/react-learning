@@ -1,0 +1,10 @@
+-Break down UI into smaller components.
+-Mixing components makes our application modular.
+-Managing such applications becomes easier.
+-Our components can be used anywhere in our code as many times as required.
+-Separate components allows for proper testing, ensuring that each works correctly, making our application error-free.
+-Abstraction is also a reason, hiding all the details of our application.
+        -Hides the complexity of our code.
+
+-simply define the component once then you can 'call' it as many times as required in our app.
+-Make our components dynamic using props.

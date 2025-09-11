@@ -1,0 +1,103 @@
+-State is required because props are immutable and there are values that 
+can change dynamically.
+-Is an object that holds data related to a specific component.
+-Object holding information to control behaviour of a component.
+-The necessary information that has to be remembered throughout the app's lifecycle.
+
+****PROPS VS STATE.
+1.Props are passed to the component.
+-State is contained inside the component.
+2.Props are immutable.
+-State can be changed.
+3.Props are like parameters passed to a function.
+-State is like a variable declared in function body.
+4.Props provide external data to a component.
+-State provide internal data to a specific component.
+
+-To create a state, write your code before the jsx in your component.
+Syntax:
+    const[stateVariable, functionToChangeTheValue] = useState();
+    //the function will set the value for count.
+    //in the brackets in our state hook, we can set what we want our initial value for our variable to be.
+            useState(0);
+            //sets the initial value of count to 0.
+
+-Pattern followed when controlling these states:
+1.define the states.
+2.Write functions that handle the state changes.
+3.Call those functions in our jsx.
+
+-The state of the component is declared at the beginning of the component.
+
+-In every component where state is used, we need to import 'useState' as it is a React hook.
+-To do this, at the start of your component, write:
+        'import { useState } from "react"; '
+
+-Our first hook being 'useState'.
+-Hooks are special functions that are only available while React is rendering.
+-Must be called at the top level of our components.
+-When using it, it is our way of telling React that we want a component to remember something.
+                const [index, setIndex] = useState(0);
+        //in this case, we want React to remember 'index'.
+-The general convention is:
+        const [something, setSomething]
+
+-Is local to a component instance on the screen;
+If the same component is rendered twice, each copy will have a completely isolated state.
+
+****CREATING MULTIPLE STATES.
+-Can be as many as needed in a component.
+-It is advisable to have multiple state variables if their state is unrelated
+
+-Events are necessary for React to be able to update its content.
+-Different elements have different events:
+        /*
+        // Button clicks
+<button onClick={increment}>+</button>
+
+// Typing in inputs  
+<input onChange={handleTextChange} />
+
+// Form submissions
+<form onSubmit={handleSubmit}>
+
+// Mouse hover
+<div onMouseOver={handleHover}>
+
+// Checkbox clicks
+<input type="checkbox" onChange={handleCheck} />
+*/
+
+-Handler functions are exactly what we use with our events.
+-Are for responding to user events.
+-Are caled 'handler' because they handle what happens when an event occurs.
+-They normally:
+-extract data from the event.
+-update state.
+-handle different input types.
+
+Universal Handler Pattern:
+const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        //How do you update state
+} 
+-Pattern used when:
+-form has multiple inputs.
+-all inputs update the same state object.
+-need to reduce code duplication.
+
+**Questions to guide handler writing:
+1.Single or multiple inputs?
+-single : 'setValue(e.target.value)'
+-multiple : need to use 'name' attribute and computed property names.
+2.What types of inputs are being handled:
+-text: use 'value'
+-checkbox: use 'checked'
+-radio : use 'value'
+3.Am I updating an object or a simple value?
+
+**The 'name' attribute on my input should match the property name in my state object.
+
+
+
+

@@ -1,0 +1,47 @@
+-There are four ways of styling a React application:
+1. Inline styling.
+-Styling individual alements.
+2. Using CSS stylesheets.
+-Have a single CSS file where the styles have been defined in classes, the styles apply ro every single iput field.
+3. CSS modules.
+-Similar to approach number 2, but every single component has it's own CSS file.
+4. Using libraries like Tailwind.
+
+1.
+-On defining the HTML elements, add styles directly to the elements.
+-Use the style attribute in your elements then '{{}}' within the curly braces, write your styles.
+-Syntax:
+        <element style={{attribute1: property1, attribute2: property2}}></element>
+        <h1 style={{color: blue}}>Inline Styling</h1>
+-Define attributes with two names in camelCase: 'fontSize'.
+-The outer curly braces are for writing js code, and the inner ones are for defining an object containing our styles.
+-We can also define the object before our main function, the object contains all the syles and will be called in our elements.
+-Syntax: 
+        const objectStyle = { style1: "attribute", style2: "attribute"}
+
+        //in our element
+        <element style = {objectStyle}></element>
+
+
+2.
+-Inside our 'src' folder, create a folder for the css stylesheet.
+-Inside our css file, write the CSS like you normally would.
+-How do we make it such that our components are able to access these properties?
+-Navigate to the css folder, usually the pattern would look something like/;
+        import "../css/style.css";
+-Move to our HTML element and define the class name in camelCase.
+        <element className = "classDefinedInCssStylesheet" ></element>
+-An advantgae is that multiple classes can be defined in a single file give the classes to the elements.
+-The disadvantage of this is needing to come up with too many class names to style different elements differently.
+-Not sustainable for huge projects.
+
+
+3.
+-Solves the problem with classes from the second solution.
+-Create a module for every single component we have.
+-Create a module by creating a file inside the components folder.
+-File name system:
+        componentToStyle.module.css
+
+
+

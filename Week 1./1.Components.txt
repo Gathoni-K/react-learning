@@ -1,0 +1,89 @@
+-Is the basic building block of our application.
+-Can be nested inside one another.
+-A component can be made of multiple other smaller components.
+-Names must always end with '.jsx'
+-It is simply a JS function that returns jsx.
+
+"App.jsx" contains an example of a component.
+
+Syntax: 
+function Componentname() {
+    //js code here
+    //code must always return 'jsx'.
+    //what looks like HTML.
+}
+
+-The difference between jsx and HTML is the 'className' attribute unique to jsx only.
+
+-In the 'src' folder, create a 'components' folder where all our components will go.
+-Component names must always start with a capital letter.
+-Our component should have the same name as our file.
+
+-To actually use our component:
+1. Import if in our main component using "import Createdcomponent from ("./components/CreatedCcomponent)"
+2.Then in our created component, export it, after our function using "export default Createdcomponent"
+3.Then to 'call it', in our main component "<Createdcomponent/>"
+
+
+**REMEMBER:
+-Component names should always start with capital letters to differentiate them from HTML tags.
+
+
+
+-To export them, use:
+export default function ComponentName() {
+    //code goes here
+}
+-In our main app, 
+import ComponentName from './components/ComponentName';
+function App () {
+    return (
+        <div className = "App">
+
+        <ComponentName />
+        
+        </div>
+    )
+}
+
+
+
+-Importing data from one component to another:
+-Define data at the lowest possible level that can still reach all the components that need it.
+        -If only BookList needs book data → define in BookList
+        -If BookList AND BookCounter need it → define in their shared parent
+-The shared parent is one that contains both components, making them sibling components.
+        -If the whole app needs it → define in App.jsx
+1.Passing data from Parent to Child.
+-Use props, allow us to pass information from parent component to its child component.
+-
+2.Passing data from Child to Parent component.
+-Used to pass data from child component to parent.
+-This is achieved by passing a callback function from parent to its child.
+
+
+
+-Important to note that data flows down through parents, like a family tree.
+-Simplest case:
+
+//1.Parent holds data.
+function Parent() {
+    const data = [...];
+
+//2.Passes data to children.
+return (
+    <div>
+    <ChildA data = {data} />
+    <ChildB data = {data} />
+    </div>
+);
+}
+//3.Children receive and use.
+function ChildA({ data }){
+    return <div>{/* use data */}</div>
+}
+
+
+-Render the giver component not the receiver.
+-The giver is the one that has data and shares it.
+-The receiver simply displays what it received

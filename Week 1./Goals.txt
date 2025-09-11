@@ -1,0 +1,6 @@
+1.Understand JSX syntax.
+2.Create first functional components.
+3.Learn about props and basic component composition.
+
+Mini Project: Build a simple "About Me" card component with props.
+-Build a complete To-Do App with add/delete/togle functionality

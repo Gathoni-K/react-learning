@@ -1,0 +1,6 @@
+-Is a special syntax that stands for 'JavaScript Extension'.
+-Allows us to combine HTML with JS code.
+-To add JS code within our jsx, enclose it within curly braces.
+
+
+***Yes, all the commas and semi-colons and brackets are equally important, when any misses, our app won't work.

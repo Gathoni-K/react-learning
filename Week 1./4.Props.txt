@@ -1,0 +1,54 @@
+-Props are to components as parameters are to functions, literally just variables for our component.
+-Are a means of passing data into our component.
+-To pass our props, we pass when we 'call' our component.
+-Are capable of managing state.
+-The flow of data in React is unidirectional; props can onle=y be passed from parent components down to its child.
+Syntax:
+" prop= 'value' "
+-This is done in our 'App.jsx' where we call our component, so it looks something like this:
+<ComponentName prop1="value" prop2="value" />
+
+-In our component, pass the props as parameters.
+Syntax:
+export default function ComponentName ({prop1, prop2}) {}
+
+So how do we do that?
+-Pass our props the same way we assign classes in out HTML.
+-use ''
+
+-To access props, enter our variable name and enclose it within curly braces.
+-One cannot directly access an object.
+-Many props can be passed.
+
+-Data passed to our component, so that it can be dynamic.
+-Our React application is rendered twice, in our "main.jsx", our app runs in '.StrictMode', for debugging purpose, is removed when launching our apps.
+
+
+***Destructuring props.
+-Taking out values separately from an object without having to access them.
+-all we have to do is store our 'attributes' in our props parameters
+Syntax:
+const {attribute1, attribute2} = props;
+-This is if 'props' had been defined as our parameter.
+-We can also pass our props directly as parameters if we enclose them in curly braces.
+-and to call them, still wrap them within curly braces.
+
+
+***Immutability of Props.
+-Data cannot be changed.
+-new values cannot be assigned to our props after declaring them in our main.jsx
+-They are read-only.
+
+
+*****Passing arrays and objects to components using props
+-Declare our array in our app, store it in a variable, then to use it, 
+go to the main app and try to access your variable.
+-Access it the same way you access every other variable.
+-This works for arrays
+
+-What of objects?
+-Declare the object in our app, and then in our main.jsx, you will access it using:
+props.objectName.attribute
+-To destructure our object, we can pass in our objectName as a parameter in our main.jsx.
+-One will access the properties in this case using: objectName.attribute
+

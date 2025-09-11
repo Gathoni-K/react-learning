@@ -1,0 +1,93 @@
+-To be able to create mutable input fields, the 'onChange' attribute is used.
+-This attribute executes a function every time every time we want to change values in our input field.
+
+-When defining input fields in React:
+1.Define an input field.
+2. Define the 'onChange' attribute.
+3.Capture the event that happens.
+        <input onchange={(e) => handleChange(e)} type="text" value={stateVariable} />
+
+
+***Declarative vs Imperative UI.
+-Plain JS when handling forms is like;
+telling a person turn by turn where to go, and if you give the wrong directions, you will end up in the wrong place.
+-This is because exact instructions are given on how to manipulate the UI depending on what just happened.
+
+-In React, we simply declare what we want to show, we do not directly manipulate the UI.
+-It is like;
+getting in a taxi and telling the driver where to go and letting the driver handle it.
+
+-To implement a form declaratively like in React, we will:
+1.Identify the component's different visual states.
+2.Determine what triggers the state changes.
+3.Represent the state in memory using 'useState'
+4.Remove any non-essential state variables.
+5.Connect the event handlers to set the state.
+
+1.
+-Every visual state the user is expected to see, is listed down.
+2.
+-State updates can be triggered in response to either human or computer inputs.
+-In both cases, state variables are set to update the UI.
+-Human inputs usually require event handlers.
+3.
+-Represent the visual states in memory using 'useState'.
+-Each piece of state is a 'moving piece', and we need as few moving pieces as possible.
+-The state variable represents which of the visual states that are to be displayed.
+4.
+-Only keep the ones that are essential, ones that are needed for our component to be functional.
+5.
+-Creating event handlers that will update the state.
+
+
+
+Pattern:
+1.State to store the value:
+    const [inputValue, setInput] = useState("");
+2.Handler function to update the state:
+    function handleChange(e) {
+        setInput(e.target.value);
+    }
+3.Connect input to state:
+    <input
+    value = {inputValue}
+    onChange={handleChange}
+    />
+-This works for all input types.
+
+-Something about the handler functions:
+1.For single input: get the value, set the state.
+2.For multiple inputs: 
+
+
+*****HANDLING MULTIPLE INPUTS.
+-WHen handling multiple inputs, t is impossible to create a new state for each input.
+-The solution is declaring state as an object.
+        const [user, setUser] = useState({
+            firstName: '',
+            lastName: '',
+            email: '',
+        })
+-Generic Handler function pattern:
+        const handleChange = (e) => {
+            const { name, value, type, checked } = e.target;
+            //all that this line does is destructuring, extracting multiple properties from 'e.target'.
+            //the line is flexible and one only needs to extract what they need.
+            //update logic here.
+            setUser({...user, [name]: value});
+            //copies all existing properties from the current state.
+            //use the input name's attribute as the property key.
+            //sets the property to the new value from the input
+        }
+-In the handler function:
+1.extract the field identifier(name) from the event.
+2.get the new value(value or checked depending on input type)
+3.update state object using spread operator.
+4.use the 'name' as the key to update the correct property.
+Universal pattern for the update logic:
+        setFunction({stateVariable, [name]: value})
+
+-On input elements:
+1.set the name attribute to match the state property names.
+2.set value to corresponding state property.
+3.set onChange to the generic handler function.
