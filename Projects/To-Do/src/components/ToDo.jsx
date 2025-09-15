@@ -1,57 +1,39 @@
+import Form from "./Form.jsx";
+import ToDoList from "./ToDoList.jsx";
+import Footer from "./Footer.jsx";
 import { useState } from "react";
 
 export default function ToDo(){
-
-    const [todo, setTodo] = useState("");
     const [todos, setTodos] = useState([]);
     //this is going to be alist, where we will store all our tasks.
     //so we will define an array.
+    const completedTodos = todos.filter((todo) => todo.done).length;
+    //will only return the todos whose status is set to done.
+    //the '.length' will give us the total number of tasks that are completed.
+    const totalTodos = todos.length;
+    //will calculate the total number of tasks we have in our component.
 
-    function captureInput(e) {
-        setTodo(e.target.value);
+    function handleDelete(itemToDelete){
+        setTodos(todos.filter(todo => todo !== itemToDelete));
     }
-    function handleSubmit(e){
-        e.preventDefault();
-        //prevents default submission of the form which causes our page to reload
-        // setTodos([todo]);
-        //this line will not work as will not store data for the previous item.
-        //we are only declaring an array that stores the previous item, adding another item overrides the previous one.
-        // console.log(todos);
-        setTodos([...todos, todo]);
-        //retrieves the previous items, takes the current one and sets an array with both.
-        //Output looks like somthing like: '[homework, lunch, play]'
-        //our to-do list disappears when we manually refresh our page
-        setTodo("");
-        //this line clears out our input
-        //question is how exactly this works, why this function to clear the input?
-    }
+    function handleComplete(itemName){
+            setTodos(todos.map(todo => todo.name === itemName? {...todo, done: !todo.done} : todo ) )
+        }
+    /*
+    -declare a function that expects a prameter 'itemToDelete'
+    -the state update happens in the second line:
+    'todos.filter(..)' - array method creating a new array with only items tha pass a specific
+    test.
+    'todo => todo !== itemToDelete' - callback function running for each item.
+    -current item being tested, arrow function, a not equal to comparison, and the item we want to delete.
+    'setTodos(..)' - takes the new filtered array and updates our state.
+    */
     return (
     <div>
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={todo} onChange={captureInput} />
-            {/* here we have used a handler function, we could also use a callback function. */}
-            {/* 
-            <input type="text" value={todo} onChange={(e) => setTodo(e.target.value)}
-            in our 'onChange' attribute, we have a callback function
-            */}
-
-            <button type="submit">Add</button>
-          
-            {/* {console.log(todos)} */}
-        </form>
-        {todos.map((item) => (
-            // we have created a callback function that accepts a particular item,
-            //then returns some jsx
-           <ToDoItem item={item} key={item} />
-           //in our case, the unique key is the item's name.
-           //our component is automatically imported.
-           //we need to pass our item as a prop to our other component.
-            /*
-            -Whenever we are mapping through something, making a callback function that returns jsx, 
-            instead of making it return jsx, we can make it return another component.
-            -To identify items uniquely, we pass in the ID of the particular items as the key. 
-            */
-          ))}
+        <Form todos={todos} setTodos={setTodos} />
+        {/* calls our component that contains the form */}
+        <ToDoList todos = {todos} onDelete={handleDelete} onComplete={handleComplete}/>
+        <Footer completedTodos={completedTodos} totalTodos={totalTodos}/>
     </div>
 );
 }
