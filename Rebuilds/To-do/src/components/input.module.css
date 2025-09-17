@@ -1,0 +1,50 @@
+.input{
+    border: none;
+    outline: none;
+    border-radius: 1.5em;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+}
+/* the rcommended way of styling a textarea is by using an external stylesheet
+and specifying the width and height of our element. */
+.addButton{
+    background-color: #E89338;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    padding: 16px 20px;
+    border-radius: 1em;
+    margin-top: 15px;
+    box-shadow: 6px 5px 3px rgb(11, 9, 10);
+
+}
+/*
+The box-shadow property:
+Syntax: box-shadow: length, length, length, length, color.
+-The first 2 lengths are considered the x and y-offset
+-The third length is the blur radius.
+-The fourth length becomes our spread radius.
+*/
+.addButton:hover{
+    cursor: pointer;
+
+}
+/*
+The transform-translate property:
+-repositions element in either the horizontal or vertical direction.
+-the co-ordinates determine how further our element moves.
+Syntax: 
+    transform: translate(length1, length2)
+-the length can either be in 
+
+*/
+.addTask{
+    display: flex;
+    margin-top: 3em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}

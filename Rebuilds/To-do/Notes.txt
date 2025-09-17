@@ -1,0 +1,48 @@
+****File where I break down my app and note down things as I move along.
+
+1.Think in components.
+-Split UI into small, reusable components.
+-Parent hold state, children receive props.
+
+2.State = Data that changes.
+
+3.Props = How components talk.
+-Are like parameters to functions.
+
+4.Event bubbles up.
+-child says 'something happened' by calling a function it got from props.
+
+
+***To implement a UI in React:
+1.Break the UI into a component hierarchy.
+-split up a  design into components in different ways:
+Programming, a component should ideally do one thing.
+CSS, consider what one would make class selectors for.
+Design, consider how to organize design's layers.
+-Components appearing within another component in the mockup should appear as a child in the hierarchy.
+-One can either build 'top down' by starting with the components higher up in the hierarchy, or 'bottom up' by working
+from components lower down, is easier to go bottom-up for large projects.
+
+
+***Rember to import our css module files in the components they are to be used.
+Then to reference them, give the 'className' attribute then;
+        <element className={styles.classNameGivenToElement}> </element>
+
+
+***Adding background pictures.
+-Is kept in the 'public' folder of our app.
+-Use an absolute path starting with '/' to access it.
+
+
+****COMPLETE BREAKDOWN OF COMPONENTS WE HAVE IN OUR APP.
+ToDo - parent component responsible for managing state.
+Header - contains our title only.
+Input - component responsible for capturing user input.
+TaskList - component where all our tasks are displayed as a list, will be the container containing 
+all our tasks.
+TaskItem - component storing our individual task items, each task with its own delete button.
+
+
+Input - state defined? Yes yes.
+
+TaskItem - will receive the input from our Input component, will be passed as props then our task rendered in our TaskList component.

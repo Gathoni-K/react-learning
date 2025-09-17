@@ -1,0 +1,18 @@
+.deleteButton{
+    padding: 10px 20px;
+    background-color: #AF672C;
+    border-radius: 1em;
+    color: white;
+    font-weight: bold;
+    margin-left: 30px;
+
+}
+.line{
+    color: grey;
+}
+.task{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
