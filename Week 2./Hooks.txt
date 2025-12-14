@@ -1,0 +1,4 @@
+**Basic Hooks**
+-Are always imported before using them.
+-Syntax: 
+    ' import { hook1, hook2 } from 'react' '
